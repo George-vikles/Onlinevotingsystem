@@ -11,7 +11,7 @@ using Onlinevotingsystem.Data;
 
 namespace Onlinevotingsystem.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(Data.ApplicationDbContext))]
     [Migration("20250217082925_InitialCreate")]
     partial class InitialCreate
     {
