@@ -2,6 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using Onlinevotingsystem.Data;
 using ApplicationDbContext;
 using Microsoft.AspNetCore.Identity;
+<<<<<<< HEAD
+using Onlinevotingsystem;
+=======
+>>>>>>> 90767b96c834dec37d2e5b8f219bb43fbb8e6310
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +17,17 @@ builder.Services.AddDbContext<Onlinevotingsystem.Data.ApplicationDbContext>(opti
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<cs>();
+<<<<<<< HEAD
+=======
 
 var app = builder.Build();
+>>>>>>> 90767b96c834dec37d2e5b8f219bb43fbb8e6310
 
+var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    await SeedData.Initialize(scope.ServiceProvider);
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
